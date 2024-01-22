@@ -111,53 +111,37 @@ namespace lab2b
 
 
 3.Write a program in C# to add Two complex numbers using Operator overloading .
-
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-namespace lab3
+public struct Complex
 {
-    class complex
+    public int real;
+    public int imaginary;
+    public Complex(int real, int imaginary)
     {
-        int real;
-        int imaginary;
-        public complex(int r, int img)
-        {
-            real = r;
-            imaginary = img;
-        }
-        public static complex operator +(complex c1, complex c2)
-        {
-            return new complex(c1.real + c2.real, c1.imaginary +
-           c2.imaginary);
-        }
-        public override string ToString()
-        {
-            return (String.Format("{0}+{1}i", real, imaginary));
-        }
+        this.real = real;
+        this.imaginary = imaginary;
+   }
+   public static Complex operator +(Complex c1, Complex c2)
+    {
+        return new Complex(c1.real + c2.real, c1.imaginary + c2.imaginary);
     }
-    class demo
+    public override string ToString()
     {
-        static void Main(string[] args)
-        {
-            int a1, b1, a2, b2;
-            Console.WriteLine("Enter the value for a1 & b1");
-            a1 = Int32.Parse(Console.ReadLine());
-            b1 = Int32.Parse(Console.ReadLine());
-            complex num1 = new complex(a1, b1);
-            Console.WriteLine("Enter the value for a2 & b2");
-            a2 = Int32.Parse(Console.ReadLine());
-            b2 = Int32.Parse(Console.ReadLine());
-            complex num2 = new complex(a2, b2);
-            complex sum = num1 + num2;
-            Console.WriteLine("First complex number is" + num1);
-            Console.WriteLine("second complex number is" + num2);
-            Console.WriteLine("sum of two complex number is" + sum);
-            Console.ReadLine();
-        }
+        return (String.Format("{0} + {1}i", real, imaginary));
+    }
+    public static void Main()
+    {
+        Complex num1 = new Complex(2, 3);
+        Complex num2 = new Complex(3, 4);
+        Complex sum = num1 + num2;
+        Console.WriteLine("First complex number: {0}", num1);
+        Console.WriteLine("Second complex number: {0}", num2);
+        Console.WriteLine("The sum of the two numbers: {0}", sum);
+        Console.ReadLine();
     }
 }
+
+
 
 4.Write a Program in C# to find the sum of each row of given jagged array of 3
 inner arrays.
